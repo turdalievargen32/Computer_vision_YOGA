@@ -38,5 +38,5 @@ This is a computer vision and machine learning project that uses MediaPipe and O
 
 This is how the Pose tracking looks:
 
-![Pose](images/pose.jpg)
+![Pose](https://github.com/turdalievargen32/Computer_vision_YOGA/blob/main/pose.jpg)
 
