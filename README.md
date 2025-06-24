@@ -31,3 +31,12 @@ This is a computer vision and machine learning project that uses MediaPipe and O
 ✅ Unknown Pose Handling
 → If the model is unsure, it labels the pose as "Unknown" to avoid false predictions.
 → Evaluate the model's accuracy on each pose after training.
+
+
+
+## 🧘 Example Pose: Pose tracking
+
+This is how the Pose tracking looks:
+
+![Pose](images/pose.jpg)
+
