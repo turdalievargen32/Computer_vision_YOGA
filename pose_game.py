@@ -1,14 +1,9 @@
-import pandas as pd
-df = pd.read_csv('data.csv')
-print(df['label'].value_counts())
-
-
 import cv2, mediapipe as mp, numpy as np, joblib, imageio, time, os
 
 POSE_DIR = 'poses_media'
 POSE_SEQUENCE = ['neutral', 'tree', 'warrior']  # Изменено 'neural' на 'neutral'
-POSE_TIME = 30
-CONF_THRESHOLD = 40
+POSE_TIME = 5
+CONF_THRESHOLD = 50
 
 print("Loading media files...")
 MEDIA = {}
@@ -116,7 +111,7 @@ def show_intro_screen():
         center_text(frame, "YOGA POSE GAME", h//2 - 80, 1.5, (0, 255, 255), 3)
         center_text(frame, "Perform 3 poses correctly", h//2 - 40, 1.0, (255, 255, 255))
         center_text(frame, "Neutral -> Tree -> Warrior", h//2, 0.9, (255, 255, 0))
-        center_text(frame, "Minimum 40% confidence required", h//2 + 40, 0.8, (255, 255, 255))
+        center_text(frame, "Minimum 75% confidence required", h//2 + 40, 0.8, (255, 255, 255))
         center_text(frame, "Game starts in 3 seconds...", h//2 + 80, 0.7, (0, 255, 0))
         
         cv2.imshow('Yoga Poses Game', frame)

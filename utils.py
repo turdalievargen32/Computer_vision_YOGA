@@ -5,7 +5,7 @@ def normalize_pose(pose):
     Центрирует позу и масштабирует до длины 1 (L2-норма)
     """
     pose = np.array(pose)
-    pose = pose - np.mean(pose, axis=0)  # Центрирование
+    pose = pose - np.mean(pose, axis=0)  #
     norm = np.linalg.norm(pose)
     if norm == 0:
         return pose
@@ -18,14 +18,11 @@ def compare_pose(user_pose, ref_pose):
     user = normalize_pose(user_pose)
     ref = normalize_pose(ref_pose)
     
-    # Убедимся, что длина совпадает
     if len(user) != len(ref):
         return 0
-
-    # Евклидова дистанция
     distances = np.linalg.norm(user - ref, axis=1)
     mean_dist = np.mean(distances)
 
-    # Преобразуем расстояние в "сходство"
-    similarity = max(0, 1 - mean_dist)  # 1 - dist → [0..1]
+    
+    similarity = max(0, 1 - mean_dist)  
     return round(similarity * 100, 2)

@@ -7,28 +7,27 @@ from sklearn.metrics import classification_report, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Загрузка данных
+
 df = pd.read_csv('data.csv')
 
-# Отделяем признаки и метки
+
 X = df.drop('label', axis=1)
 y = df['label']
 
-# Разбиваем на тренировку и тест
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Обучение модели
+
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
-# Оценка
+
 y_pred = model.predict(X_test)
 print("✅ Accuracy:", accuracy_score(y_test, y_pred))
 print("📊 Report:\n", classification_report(y_test, y_pred))
 
-# Сохраняем модель
+
 joblib.dump(model, 'pose_classifier.pkl')
-print("💾 Модель сохранена как pose_classifier.pkl")
+print("Модель сохранена как pose_classifier.pkl")
 
 
 
